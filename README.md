@@ -52,6 +52,13 @@ Steps:
 
 If you're on Linux, it should be sufficient to share your USB device either as a docker volume or with the `--device` flag. However, I have not yet tested Linux.
 
+Serial Debugging
+----------------
+
+[Picocom](https://github.com/npat-efault/picocom) is installed in this image by default. Invoke it with `picocom -b 115200 /dev/ttyUSB0` (change the baud rate and device path accordingly)
+
+Stop it with `Ctrl-A Ctrl-X`
+
 PRO TIP
 -------
 
