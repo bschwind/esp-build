@@ -17,8 +17,8 @@ Quick Setup
 
 * `docker pull bschwind/esp-open-rtos`
 * `cd` to your esp-open-rtos project
-* Without USB flashing support: `docker run --rm -it -v $(PWD):/home/esp/esp-open-rtos/examples/project bschwind/esp-open-rtos /bin/bash`
-* With USB flashing support: `docker run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v $(PWD):/home/esp/esp-open-rtos/examples/project bschwind/esp-open-rtos /bin/bash`
+* Without USB flashing support: `docker run --rm -it -e "ESPBAUD=921600" -v $(PWD):/home/esp/esp-open-rtos/examples/project bschwind/esp-open-rtos /bin/bash`
+* With USB flashing support: `docker run --rm -it --privileged -e "ESPBAUD=921600" -v /dev/bus/usb:/dev/bus/usb -v $(PWD):/home/esp/esp-open-rtos/examples/project bschwind/esp-open-rtos /bin/bash`
 
 Either step will put you in an interactive shell inside the container. If you have a Makefile in your project directory, you can immediately
 run `make` and your source should get compiled. `make flash` will attempt to flash the code to `/dev/ttyUSB0`, assuming you're using the
@@ -57,7 +57,7 @@ PRO TIP
 
 When running `make flash` from esp-open-rtos's Makefiles, it will print out the flashing command it uses, for example `esptool.py -p /dev/ttyUSB0 --baud 115200 write_flash -fs 16m -fm qio -ff 40m 0x0 ../../bootloader/firmware_prebuilt/rboot.bin 0x1000 ../../bootloader/firmware_prebuilt/blank_config.bin 0x2000 ./firmware/blink_timers.bin`
 
-See that `--baud 115200`? You can change it to higher values and the ESP8266 should honor it (in most cases?). Valid values I've had success with are [230400, 460800, 921600]
+See that `--baud 115200`? You can change it to higher values with the ESPBAUD environment variable which is passed into the `docker run` command and the ESP8266 should honor it (in most cases?). Valid values I've had success with are [230400, 460800, 921600]
 with 921600 flashing in under 4 seconds (241,664 bytes). This can significantly speed up development time.
 
 With any flashing baud rate, I have noticed more occasional errors with this setup than I have with the Arduino IDE or other environments, I'm not sure what the cause is.
