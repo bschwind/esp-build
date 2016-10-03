@@ -1,7 +1,7 @@
 esp-open-rtos Build Environment
 ===============================
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/bschwind/esp-open-rtos.svg)](https://hub.docker.com/r/bschwind/esp-open-rtos/) [![Docker Stars](https://img.shields.io/docker/stars/bschwind/esp-open-rtos.svg)](https://hub.docker.com/r/bschwind/esp-open-rtos/) [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/bschwind/esp-build/blob/master/LICENSE)
+[![Docker Pulls](https://img.shields.io/docker/pulls/bschwind/esp-open-rtos.svg)](https://hub.docker.com/r/bschwind/esp-open-rtos/) [![Docker Stars](https://img.shields.io/docker/stars/bschwind/esp-open-rtos.svg)](https://hub.docker.com/r/bschwind/esp-open-rtos/) [![](https://images.microbadger.com/badges/image/bschwind/esp-open-rtos.svg)](https://microbadger.com/images/bschwind/esp-open-rtos "Get your own image badge on microbadger.com") [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/bschwind/esp-build/blob/master/LICENSE)
 
 This Dockerfile contains the dependencies necessary to create a toolchain for the ESP8266 chip.
 It is based on [esp-open-rtos](https://github.com/SuperHouse/esp-open-rtos) and allows for easy building and flashing
@@ -70,3 +70,4 @@ with 921600 flashing in under 4 seconds (241,664 bytes). This can significantly 
 With any flashing baud rate, I have noticed more occasional errors with this setup than I have with the Arduino IDE or other environments, I'm not sure what the cause is.
 The flash will sometimes get stuck at 99% with `A fatal error occurred: Timed out waiting for packet header`. I've found this actually happens *less* often on 921600 baud,
 but it can still happen. If anyone knows what's up with that, please let me know!
+ 
