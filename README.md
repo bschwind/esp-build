@@ -7,6 +7,8 @@ This Dockerfile contains the dependencies necessary to create a toolchain for th
 It is based on [esp-open-rtos](https://github.com/SuperHouse/esp-open-rtos) and allows for easy building and flashing
 to the ESP8266 chip for projects written with esp-open-rtos.
 
+**Note**: Espressif now offers an [official FreeRTOS-based SDK](https://github.com/espressif/ESP8266_RTOS_SDK) which is quite easy to set up and use without docker, especially if you place it in your project as a git submodule. I would recommend giving it a try as I'm not currently maintaining this docker image.
+
 Dependencies
 ------------
 - [Docker](https://www.docker.com/products/docker-toolbox)
